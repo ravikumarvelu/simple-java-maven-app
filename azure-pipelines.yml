@@ -6,7 +6,7 @@
 trigger:
 - master
 
-pool: u36selfhosted
+pool: Default
 #  vmImage: ubuntu-latest
 
 steps:
