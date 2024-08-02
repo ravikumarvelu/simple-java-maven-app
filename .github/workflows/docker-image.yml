@@ -30,4 +30,4 @@ jobs:
       with:
         context: src
         push: false
-        file: Dockerfile
+        file: ./myfolder/Dockerfile
