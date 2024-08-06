@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-        - run: echo "This is from workflow2 from ${{inputs.modules}}" 
+        - run: echo "This is from workflow2 from ${{inputs.modules}} with ${{secrets.ONE}} and variable ${{vars.NEW}}" 
 #   call_workflow2:
 #     uses: ./.github/workflows/workflow2.yml
 #     with:
