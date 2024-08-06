@@ -1,0 +1,14 @@
+name: workflow-3
+
+on:
+  workflow_call:
+    inputs: 
+        modules:
+            required: true
+            type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - run: echo "This is from workflow2 from ${{inputs.modules}}" 

@@ -1,0 +1,21 @@
+name: workflow-2
+
+on:
+  workflow_call:
+    inputs: 
+        modules:
+            required: true
+            type: string
+    secrets:
+      env-sec:
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - run: echo "This is from workflow2 from ${{inputs.modules}} with secret ${{secrets.env-sec}}" 
+        - name: call workflow1
+          uses: .github/workflows/workflow2
+          with:
+            modules: workflow1
