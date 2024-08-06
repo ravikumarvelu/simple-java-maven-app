@@ -6,16 +6,14 @@ on:
         modules:
             required: true
             type: string
-    secrets:
-      env-sec:
-        required: true
+
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-        - run: echo "This is from workflow2 from ${{inputs.modules}} with secret ${{secrets.env-sec}}" 
+        - run: echo "This is from workflow2 from ${{inputs.modules}}" 
         - name: call workflow1
-          uses: ./.github/workflows/workflow2
+          uses: ./.github/workflows/workflow2.yml
           with:
             modules: workflow1

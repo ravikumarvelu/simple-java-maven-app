@@ -32,8 +32,7 @@ jobs:
         push: false
         file: ./myfolder/Dockerfile
     - name: call workflow1
-      uses: ./.github/workflows/workflow2
+      uses: ./.github/workflows/workflow2.yml
       with:
         modules: docker-image
-        env-sec: my-secret
 
