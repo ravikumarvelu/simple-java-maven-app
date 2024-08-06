@@ -36,4 +36,5 @@ jobs:
     uses: ./.github/workflows/workflow2.yml
     with:
       modules: docker-image
+      variable: MYVAR
 

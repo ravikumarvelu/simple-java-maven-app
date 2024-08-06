@@ -6,11 +6,15 @@ on:
         modules:
             required: true
             type: string
+        variable:
+            type: string
 
 
 
 jobs:
   build:
+    environment: 
+      name: develop
     runs-on: ubuntu-latest
     steps:
         - run: echo "This is from workflow2 from ${{inputs.modules}} with ${{secrets.ONE}} and variable ${{vars.NEW}}" 
@@ -18,7 +22,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-        - run : echo "this is the second job of workflow2"
+        - run : echo "this is the second job of workflow2 ${{vars.inputs.variable}}"
 #   call_workflow2:
 #     uses: ./.github/workflows/workflow2.yml
 #     with:
