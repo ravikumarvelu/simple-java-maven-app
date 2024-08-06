@@ -8,12 +8,17 @@ on:
             type: string
 
 
-            
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
         - run: echo "This is from workflow2 from ${{inputs.modules}} with ${{secrets.ONE}} and variable ${{vars.NEW}}" 
+  second_job:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+        - run : echo "this is the second job of workflow2"
 #   call_workflow2:
 #     uses: ./.github/workflows/workflow2.yml
 #     with:
