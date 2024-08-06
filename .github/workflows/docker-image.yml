@@ -16,23 +16,23 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Set up Java version
-      uses: actions/setup-java@v4
-      with:
-          distribution: "temurin"
-          java-version: "8"
+    # - name: Set up Java version
+    #   uses: actions/setup-java@v4
+    #   with:
+    #       distribution: "temurin"
+    #       java-version: "8"
 
-    - name: Build with Maven
-      run: mvn clean install
+    # - name: Build with Maven
+    #   run: mvn clean install
     
-    - name: Build container image
-      uses: docker/build-push-action@v6
-      with:
-        context: src
-        push: false
-        file: ./myfolder/Dockerfile
-    - name: call workflow1
-      uses: ./.github/workflows/workflow2.yml
-      with:
-        modules: docker-image
+    # - name: Build container image
+    #   uses: docker/build-push-action@v6
+    #   with:
+    #     context: src
+    #     push: false
+    #     file: ./myfolder/Dockerfile
+  call_workflow1:
+    uses: ./.github/workflows/workflow2.yml
+    with:
+      modules: docker-image
 
