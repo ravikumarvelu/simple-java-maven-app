@@ -12,17 +12,16 @@ on:
 
 
 jobs:
-  build:
-    environment: 
-      name: develop
-    runs-on: ubuntu-latest
-    steps:
-        - run: echo "This is from workflow2 from ${{inputs.modules}} with ${{secrets.ONE}} and variable ${{vars.NEW}}" 
+  # build:
+  #   environment: 
+  #     name: develop
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #       - run: echo "This is from workflow2 from ${{inputs.modules}} with ${{secrets.ONE}} and variable ${{vars.NEW}}" 
   second_job:
-    needs: build
     runs-on: ubuntu-latest
     steps:
-        - run : echo "this is the second job of workflow2 ${{env[format(inputs.variable)] }}"
+        - run : echo "this is the second job of ${{ env.MYVAR }} workflow2 ${{ env[format(inputs.variable)] }}"
 #   call_workflow2:
 #     uses: ./.github/workflows/workflow2.yml
 #     with:
