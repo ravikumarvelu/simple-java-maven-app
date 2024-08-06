@@ -22,7 +22,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-        - run : echo "this is the second job of workflow2 ${{format('vars.{0}',inputs.variable) }}"
+        - run : echo "this is the second job of workflow2 ${{env[format('vars.{0}',inputs.variable)] }}"
 #   call_workflow2:
 #     uses: ./.github/workflows/workflow2.yml
 #     with:
