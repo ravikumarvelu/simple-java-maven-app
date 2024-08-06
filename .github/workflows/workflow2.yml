@@ -24,7 +24,7 @@ jobs:
       name: develop
     steps:
         - run : echo "this is the second job of workflow2 ${{ env[format(inputs.variable)] }}"
-        - run : echo "${{env}}"
+        - run : echo "${{toJson(env)}}"
 #   call_workflow2:
 #     uses: ./.github/workflows/workflow2.yml
 #     with:
