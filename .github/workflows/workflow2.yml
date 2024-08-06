@@ -16,6 +16,6 @@ jobs:
     steps:
         - run: echo "This is from workflow2 from ${{inputs.modules}} with secret ${{secrets.env-sec}}" 
         - name: call workflow1
-          uses: .github/workflows/workflow2
+          uses: ./.github/workflows/workflow2
           with:
             modules: workflow1
