@@ -20,8 +20,10 @@ jobs:
   #       - run: echo "This is from workflow2 from ${{inputs.modules}} with ${{secrets.ONE}} and variable ${{vars.NEW}}" 
   second_job:
     runs-on: ubuntu-latest
+    environment: 
+      name: develop
     steps:
-        - run : echo "this is the second job of ${{ env.MYVAR }} workflow2 ${{ env[format(inputs.variable)] }}"
+        - run : echo "this is the second job of workflow2 ${{ env[format(inputs.variable)] }}"
 #   call_workflow2:
 #     uses: ./.github/workflows/workflow2.yml
 #     with:
