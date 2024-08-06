@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - run: echo "This is from workflow2 from ${{inputs.modules}}" 
-  call_workflow2:
-    uses: ./.github/workflows/workflow2.yml
-    with:
-      modules: workflow1
+#   call_workflow2:
+#     uses: ./.github/workflows/workflow2.yml
+#     with:
+#       modules: workflow1
