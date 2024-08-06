@@ -1,0 +1,20 @@
+name: workflow-2
+
+on:
+  workflow_call:
+    inputs: 
+        modules:
+            required: true
+            type: string
+
+
+            
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - run: echo "This is from workflow2 from ${{inputs.modules}} with ${{secrets.ONE}} and variable ${{vars.NEW}}" 
+#   call_workflow2:
+#     uses: ./.github/workflows/workflow2.yml
+#     with:
+#       modules: workflow1
