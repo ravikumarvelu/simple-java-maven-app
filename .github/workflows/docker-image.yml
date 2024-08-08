@@ -3,6 +3,13 @@ name: Docker Image CI
 on:
   push:
     branches: [ "master" , "QA"]
+  workflow_dispatch: 
+    inputs:
+      branch:
+        default: 'main'
+        type: choice
+        options:
+          - main
 
 jobs:
   build:
@@ -30,11 +37,11 @@ jobs:
     #     context: src
     #     push: false
     #     file: ./myfolder/Dockerfile
-  call_workflow1:
-    name: My_workflow
-    needs: build
-    uses: ./.github/workflows/workflow2.yml
-    with:
-      modules: docker-image
-      variable: MYVAR
+  # call_workflow1:
+  #   name: My_workflow
+  #   needs: build
+  #   uses: ./.github/workflows/workflow2.yml
+  #   with:
+  #     modules: docker-image
+  #     variable: MYVAR
 
