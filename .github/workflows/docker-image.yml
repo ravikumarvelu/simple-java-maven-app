@@ -4,6 +4,7 @@ on:
   push:
     branches: [ "master" , "QA"]
   workflow_dispatch: 
+  pull_request: 
 
 
 jobs:
@@ -12,8 +13,9 @@ jobs:
     steps:
     # - name: Checkout the code
     #   uses: actions/checkout@v4
-    - name: check something
-      run: echo "${{toJson(github.ref_name)}}"
+    
+    - run: echo "${{toJson(github.event)}}"
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
